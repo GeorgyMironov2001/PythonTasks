@@ -66,7 +66,7 @@ Dict = s.split()
 Words = []
 Colors = []
 ran = []
-print(len(Dict))
+string = ''
 for i in range(25):
     Colors.append(['olive', 'gray', 0])
     ran.append(i)
@@ -99,181 +99,14 @@ def captain():
 
 @app.route('/main', methods=['GET'])
 def main():
-    return render_template('main.html', Words=Words, Colors=Colors)
+    return render_template('main.html', Words=Words, Colors=Colors, str=string)
 
 
-@app.route('/change00', methods=['POST'])
-def change00():
-    if (Colors[0][2] == 0):
-        Colors[0][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change01', methods=['POST'])
-def change01():
-    if (Colors[1][2] == 0):
-        Colors[1][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change02', methods=['POST'])
-def change02():
-    if (Colors[2][2] == 0):
-        Colors[2][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change03', methods=['POST'])
-def change03():
-    if (Colors[3][2] == 0):
-        Colors[3][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change04', methods=['POST'])
-def change04():
-    if (Colors[4][2] == 0):
-        Colors[4][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change10', methods=['POST'])
-def change10():
-    if (Colors[5][2] == 0):
-        Colors[5][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change11', methods=['POST'])
-def change11():
-    if (Colors[6][2] == 0):
-        Colors[6][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change12', methods=['POST'])
-def change12():
-    if (Colors[7][2] == 0):
-        Colors[7][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change13', methods=['POST'])
-def change13():
-    if (Colors[8][2] == 0):
-        Colors[8][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change14', methods=['POST'])
-def change14():
-    if (Colors[9][2] == 0):
-        Colors[9][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change20', methods=['POST'])
-def change20():
-    if (Colors[10][2] == 0):
-        Colors[10][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change21', methods=['POST'])
-def change21():
-    if (Colors[11][2] == 0):
-        Colors[11][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change22', methods=['POST'])
-def change22():
-    if (Colors[12][2] == 0):
-        Colors[12][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change23', methods=['POST'])
-def change23():
-    if (Colors[13][2] == 0):
-        Colors[13][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change24', methods=['POST'])
-def change24():
-    if (Colors[14][2] == 0):
-        Colors[14][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change30', methods=['POST'])
-def change30():
-    if (Colors[15][2] == 0):
-        Colors[15][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change31', methods=['POST'])
-def change31():
-    if (Colors[16][2] == 0):
-        Colors[16][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change32', methods=['POST'])
-def change32():
-    if (Colors[17][2] == 0):
-        Colors[17][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change33', methods=['POST'])
-def change33():
-    if (Colors[18][2] == 0):
-        Colors[18][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change34', methods=['POST'])
-def change34():
-    if (Colors[19][2] == 0):
-        Colors[19][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change40', methods=['POST'])
-def change40():
-    if (Colors[20][2] == 0):
-        Colors[20][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change41', methods=['POST'])
-def change41():
-    if (Colors[21][2] == 0):
-        Colors[21][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change42', methods=['POST'])
-def change42():
-    if (Colors[22][2] == 0):
-        Colors[22][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change43', methods=['POST'])
-def change43():
-    if (Colors[23][2] == 0):
-        Colors[23][2] += 1
-    return redirect(url_for('main'))
-
-
-@app.route('/change44', methods=['POST'])
-def change44():
-    if (Colors[24][2] == 0):
-        Colors[24][2] += 1
+@app.route('/execute_cell/<cell_id>', methods=['POST'])
+def execute(cell_id=None):
+    cell_id = int(cell_id)
+    if (Colors[cell_id][2] == 0):
+        Colors[cell_id][2] += 1
     return redirect(url_for('main'))
 
 
