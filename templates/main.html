@@ -7,188 +7,24 @@
 <body>
 <h2>Слова</h2>
 
+{%for i in range(5)%}
+{%for j in range (5)%}
 
-<form method="post" action="/change00">
+<form method="post" action="/execute_cell/{{ 5*i + j }}">
 
     <button type="submit"
-            style=" background:{{Colors[0][Colors[0][2]]}}; color:white; position:absolute;top:75px ;left:150px; width:200px; height:75px">
-        {{Words[0]}}
-    </button>
-
-
-</form>
-
-<form method="post" action="/change01">
-    <button type="submit"
-            style=" background:{{Colors[1][Colors[1][2]]}}; color:white; position:absolute;top:150px ;left:150px; width:200px; height:75px">
-        {{Words[1]}}
+            style="background:{{Colors[ 5*i + j][Colors[ 5*i + j][2]]}};
+            color:white;
+            position:absolute;
+            top:{{(75 + j*75)}}px;
+            left:{{(150 + 200*i)}}px;
+            width:200px;
+            height:75px">
+        {{Words[i*5 + j]}}
     </button>
 </form>
-
-<form method="post" action="/change02">
-    <button type="submit"
-            style=" background:{{Colors[2][Colors[2][2]]}}; color:white; position:absolute;top:225px ;left:150px; width:200px; height:75px">
-        {{Words[2]}}
-    </button>
-</form>
-
-<form method="post" action="/change03">
-    <button type="submit"
-            style=" background:{{Colors[3][Colors[3][2]]}}; color:white; position:absolute;top:300px ;left:150px; width:200px; height:75px">
-        {{Words[3]}}
-    </button>
-</form>
-
-<form method="post" action="/change04">
-    <button type="submit"
-            style=" background:{{Colors[4][Colors[4][2]]}}; color:white; position:absolute;top:375px ;left:150px; width:200px; height:75px">
-        {{Words[4]}}
-    </button>
-</form>
-
-<!--Первый Столбец-->
-<form method="post" action="/change10">
-    <button type="submit"
-            style=" background:{{Colors[5][Colors[5][2]]}}; color:white; position:absolute;top:75px ;left:350px; width:200px; height:75px">
-        {{Words[5]}}
-    </button>
-</form>
-
-<form method="post" action="/change11">
-    <button type="submit"
-            style=" background:{{Colors[6][Colors[6][2]]}}; color:white; position:absolute;top:150px ;left:350px; width:200px; height:75px">
-        {{Words[6]}}
-    </button>
-</form>
-
-<form method="post" action="/change12">
-    <button type="submit"
-            style=" background:{{Colors[7][Colors[7][2]]}}; color:white; position:absolute;top:225px ;left:350px; width:200px; height:75px">
-        {{Words[7]}}
-    </button>
-</form>
-
-<form method="post" action="/change13">
-    <button type="submit"
-            style=" background:{{Colors[8][Colors[8][2]]}}; color:white; position:absolute;top:300px ;left:350px; width:200px; height:75px">
-        {{Words[8]}}
-    </button>
-</form>
-
-<form method="post" action="/change14">
-    <button type="submit"
-            style=" background:{{Colors[9][Colors[9][2]]}}; color:white; position:absolute;top:375px ;left:350px; width:200px; height:75px">
-        {{Words[9]}}
-    </button>
-</form>
-
-<!--Второй Столбец-->
-
-<form method="post" action="/change20">
-    <button type="submit"
-            style=" background:{{Colors[10][Colors[10][2]]}}; color:white; position:absolute;top:75px ;left:550px; width:200px; height:75px">
-        {{Words[10]}}
-    </button>
-</form>
-
-<form method="post" action="/change21">
-    <button type="submit"
-            style=" background:{{Colors[11][Colors[11][2]]}}; color:white; position:absolute;top:150px ;left:550px; width:200px; height:75px">
-        {{Words[11]}}
-    </button>
-</form>
-
-<form method="post" action="/change22">
-    <button type="submit"
-            style=" background:{{Colors[12][Colors[12][2]]}}; color:white; position:absolute;top:225px ;left:550px; width:200px; height:75px">
-        {{Words[12]}}
-    </button>
-</form>
-
-<form method="post" action="/change23">
-    <button type="submit"
-            style=" background:{{Colors[13][Colors[13][2]]}}; color:white; position:absolute;top:300px ;left:550px; width:200px; height:75px">
-        {{Words[13]}}
-    </button>
-</form>
-
-<form method="post" action="/change24">
-    <button type="submit"
-            style=" background:{{Colors[14][Colors[14][2]]}}; color:white; position:absolute;top:375px ;left:550px; width:200px; height:75px">
-        {{Words[14]}}
-    </button>
-</form>
-<!--Третий Столбец-->
-<form method="post" action="/change30">
-    <button type="submit"
-            style=" background:{{Colors[15][Colors[15][2]]}}; color:white; position:absolute;top:75px ;left:750px; width:200px; height:75px">
-        {{Words[15]}}
-    </button>
-</form>
-
-<form method="post" action="/change31">
-    <button type="submit"
-            style=" background:{{Colors[16][Colors[16][2]]}}; color:white; position:absolute;top:150px ;left:750px; width:200px; height:75px">
-        {{Words[16]}}
-    </button>
-</form>
-
-<form method="post" action="/change32">
-    <button type="submit"
-            style=" background:{{Colors[17][Colors[17][2]]}}; color:white; position:absolute;top:225px ;left:750px; width:200px; height:75px">
-        {{Words[17]}}
-    </button>
-</form>
-
-<form method="post" action="/change33">
-    <button type="submit"
-            style=" background:{{Colors[18][Colors[18][2]]}}; color:white; position:absolute;top:300px ;left:750px; width:200px; height:75px">
-        {{Words[18]}}
-    </button>
-</form>
-
-<form method="post" action="/change34">
-    <button type="submit"
-            style=" background:{{Colors[19][Colors[19][2]]}}; color:white; position:absolute;top:375px ;left:750px; width:200px; height:75px">
-        {{Words[19]}}
-    </button>
-</form>
-<!--Четвертый Столбец-->
-<form method="post" action="/change40">
-    <button type="submit"
-            style=" background:{{Colors[20][Colors[20][2]]}}; color:white; position:absolute;top:75px ;left:950px; width:200px; height:75px">
-        {{Words[20]}}
-    </button>
-</form>
-
-<form method="post" action="/change41">
-    <button type="submit"
-            style=" background:{{Colors[21][Colors[21][2]]}}; color:white; position:absolute;top:150px ;left:950px; width:200px; height:75px">
-        {{Words[21]}}
-    </button>
-</form>
-
-<form method="post" action="/change42">
-    <button type="submit"
-            style=" background:{{Colors[22][Colors[22][2]]}}; color:white; position:absolute;top:225px ;left:950px; width:200px; height:75px">
-        {{Words[22]}}
-    </button>
-</form>
-
-<form method="post" action="/change43">
-    <button type="submit"
-            style=" background:{{Colors[23][Colors[23][2]]}}; color:white; position:absolute;top:300px ;left:950px; width:200px; height:75px">
-        {{Words[23]}}
-    </button>
-</form>
-
-<form method="post" action="/change44">
-    <button type="submit"
-            style=" background:{{Colors[24][Colors[24][2]]}}; color:white; position:absolute;top:375px ;left:950px; width:200px; height:75px">
-        {{Words[24]}}
-    </button>
-</form>
-<!--Пятый Столбец-->
+{%endfor%}
+{%endfor%}
 
 
 </body>
