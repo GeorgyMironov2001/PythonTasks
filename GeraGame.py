@@ -11,29 +11,39 @@ def dist(x1, y1, x2, y2):
     return math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2)
 
 
-WalkRight = [pygame.image.load('GeraGame/pygame_right_1.png'), pygame.image.load('GeraGame/pygame_right_2.png'),
-             pygame.image.load('GeraGame/pygame_right_3.png'),
-             pygame.image.load('GeraGame/pygame_right_4.png'), pygame.image.load('GeraGame/pygame_right_5.png'),
-             pygame.image.load('GeraGame/pygame_right_6.png'), ]
+a = 'GeraGame/pygame_right_1.png'
+WalkRight = []
+WalkLeft = []
+for i in range(6):
+    WalkRight.append(pygame.image.load(a))
+    a = list(a)
+    t = i + 2
+    a[22] = str(t)
+    a = ''.join(a)
+a = 'GeraGame/pygame_left_1.png'
+for i in range(6):
+    WalkLeft.append(pygame.image.load(a))
+    a = list(a)
+    t = i + 2
+    a[21] = str(t)
+    a = ''.join(a)
 
-WalkLeft = [pygame.image.load('GeraGame/pygame_left_1.png'), pygame.image.load('GeraGame/pygame_left_2.png'),
-            pygame.image.load('GeraGame/pygame_left_3.png'),
-            pygame.image.load('GeraGame/pygame_left_4.png'), pygame.image.load('GeraGame/pygame_left_5.png'),
-            pygame.image.load('GeraGame/pygame_left_6.png'), ]
-PiratRight = [pygame.image.load('GeraGame/2_entity_000_WALK_000.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_001.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_002.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_003.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_004.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_005.png'),
-              pygame.image.load('GeraGame/2_entity_000_WALK_006.png')]
-PiratLeft = [pygame.image.load('GeraGame/2_entity_000_WALKLeft_000.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_001.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_002.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_003.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_004.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_005.png'),
-             pygame.image.load('GeraGame/2_entity_000_WALKLeft_006.png')]
+s_begin = "GeraGame/2_entity_000_WALK_00"
+s_end = ".png"
+PiratRight = []
+for i in range(7):
+    s = s_begin + str(i) + s_end
+    PiratRight.append(pygame.image.load(s))
+
+
+
+s_begin = "GeraGame/2_entity_000_WALKLeft_00"
+s_end = ".png"
+PiratLeft = []
+for i in range(7):
+    s = s_begin + str(i) + s_end
+    PiratLeft.append(pygame.image.load(s))
+
 BackGrounds = [[pygame.image.load('GeraGame/весна1.jpg'), pygame.image.load('GeraGame/весна2.jpg'),
                 pygame.image.load('GeraGame/весна3.jpg'), pygame.image.load('GeraGame/весна4.jpg')],
                [pygame.image.load('GeraGame/лето1.jpg'), pygame.image.load('GeraGame/лето2.jpg'),
@@ -242,6 +252,7 @@ class Pirat(Person):
     health = 10
     Colors = [(255, 0, 0), (0, 0, 255)]
     TimeToShoot = 0
+    TimeToChangeWhere = 0
 
     # WhereGoX = random.randint(-200, 200)
     # WhereGoY = random.randint(-200, 200)
@@ -274,6 +285,11 @@ class Pirat(Person):
             bullets.append(OrdinaryBullet(x1, y1, BiasX, BiasY))
             bullets[len(bullets) - 1].color = (255, 0, 0)
         # Движение врагов
+        self.TimeToChangeWhere += 1
+        if(self.TimeToChangeWhere == 140):
+            self.WhereGoX = random.randint(-400, 400)
+            self.WhereGoY = random.randint(-400, 400)
+            self.TimeToChangeWhere = 0
         x1 = self.x
         y1 = self.y
         tox = Persons[0].x + self.WhereGoX
@@ -450,7 +466,7 @@ while run:
                 BuletIndex += 1
                 BuletIndex = BuletIndex % len(KindsOfBullet)
                 Persons[0].BulletType = KindsOfBullet[BuletIndex]
-    if (Persons[0].TimeForPirat >= 500):
+    if (Persons[0].TimeForPirat >= 1500):
         Persons[0].AddPirat()
         Persons[0].TimeForPirat = 0
     else:
