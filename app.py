@@ -41,7 +41,7 @@ def hello_world():
 
 @app.route('/captain')
 def captain():
-    return render_template('Капитан.html', Words=Words, Colors=Colors)
+    return render_template('Captain.html', Words=Words, Colors=Colors)
 
 
 @app.route('/main', methods=['GET'])
