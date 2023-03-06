@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<h2>Слова</h2>
+
+{%for i in range(5)%}
+{%for j in range (5)%}
+
+<form method="post" action="/execute_cell/{{ 5*i + j }}">
+
+    <button type="submit"
+            style="background:{{Colors[ 5*i + j][Colors[ 5*i + j][2]]}};
+            color:white;
+            position:absolute;
+            top:{{(75 + j*75)}}px;
+            left:{{(150 + 200*i)}}px;
+            width:200px;
+            height:75px">
+        {{Words[i*5 + j]}}
+    </button>
+</form>
+{%endfor%}
+{%endfor%}
+
+
+</body>
+</html>
