@@ -11,14 +11,15 @@
 {%for i in range(5)%}
 {%for j in range (5)%}
 <button
-        style=" background:{{Colors[i*5 + j][1]}};
+        style="font-size : 20px;
+                background:{{Colors[i*5 + j][1]}};
                 color:white;
                 position:absolute;
                 top:{{(75 + j*75)}}px ;
                 left:{{(150 + 200*i)}}px;
                  width:200px;
                   height:75px">
-        {{Words[i*5 + j]}}
+    {{Words[i*5 + j]}}
 </button>
 {%endfor%}
 {%endfor%}

@@ -2,7 +2,7 @@ import random
 
 from collections import namedtuple
 
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for
 
 from Source.Source import s
 app = Flask(__name__)
@@ -31,7 +31,6 @@ for i in range(8):
 a = random.choice(ran)
 Colors[a][1] = 'black'
 print(Colors)
-q = ['2313']
 
 
 @app.route('/', methods=['GET'])
